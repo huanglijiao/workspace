@@ -15,8 +15,7 @@ var sourcemap = require('gulp-sourcemaps');
 
 // path
 var filepath = 'output/template/';
-var stylepath = 'output/assets/style/';
-var scriptpath = 'output/assets/script/';
+var assetpath = 'output/assets/';
 var imgpath = 'output/asset/script';
 var sassfilepath  = ['widget/**/*.scss', 'assets/**/*.scss'];
 var templatepath = ['template/**/*.ejs'];
@@ -28,7 +27,7 @@ gulp.task('compile:sass', function () {
     gulp.src(sassfilepath)
         .pipe(sass())
         .on('error', util.log)
-        .pipe(gulp.dest(stylepath))
+        .pipe(gulp.dest(assetpath))
         .pipe(connect.reload());
 });
 
@@ -49,7 +48,7 @@ gulp.task('start:server', function () {
 
 gulp.task('compile:js', function () {
     gulp.src(jspath)
-        .pipe(gulp.dest(scriptpath));
+        .pipe(gulp.dest(assetpath));
 });
 
 gulp.task('watch:file', function () {
