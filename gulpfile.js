@@ -54,12 +54,9 @@ gulp.task('compile:js', function () {
 });
 
 gulp.task('watch:file', function () {
-    /*
-    gulp.watch(jspath)
-        .watch(templatepath)
-        .watch(sassfilepath);
-    */
-    console.log(gulp.watch);
+    gulp.watch(jspath, ['compile:js']);
+    gulp.watch(templatepath, ['compile:ejs']);
+    gulp.watch(sassfilepath, ['compile:sass']);
 });
 
 

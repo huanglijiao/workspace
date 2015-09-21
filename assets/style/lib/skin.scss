@@ -21,10 +21,11 @@ $skin-foot: #333131;
 $skin-foot-sp: #43434e;
 $skin-sp: #e0dede;
 
-@mixin crossprop($pro:border-radius, $value:3px) {
-    -moz-$pro: $value;
-    -webkit-$pro: $value;
-    $pro: $value;
+
+@mixin crossprop($pro, $value) {
+    -moz-#{$pro}: $value;
+    -webkit-#{$pro}: $value;
+    #{$pro}: $value;
 }
 
 
