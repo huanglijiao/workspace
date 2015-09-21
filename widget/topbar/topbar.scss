@@ -1,0 +1,35 @@
+// topbar css
+@import ../assets/style/lib/skin.scss
+
+.topbar {
+    background: $skin-highlight;
+    color: $color-light;
+    height: 34px;
+}
+.topbar ol {
+    margin: 0 0 0 485px;
+}
+.topbar li {
+    line-height: 34px;
+    padding: 0 20px;
+}
+.topbar li:last-child {
+    line-height: 24px;
+    margin: 4px 0;
+    border: 1px solid $color-light;
+    @include crossprop(border-radius, 3px);
+    padding: 0 8px;
+}
+.topbar .sp-inline {
+    margin-right: -20px;
+}
+.topbar li:first-child {
+    background: url('/static/img/index/css/ico-online.png') left top no-repeat;
+}
+.topbar li:nth-child(2) {
+    background: url('/static/img/index/css/ico-tech.png') left top no-repeat;
+}
+
+
+
+

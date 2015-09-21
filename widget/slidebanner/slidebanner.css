@@ -1,0 +1,34 @@
+/**
+ *@file slide banner
+*/
+.slidebanner {
+    height: 720px;
+    overflow: hidden;
+    position:relative;
+    .banner {
+        margin: 0 auto;
+        a {
+            display: block;
+        }
+        img {
+            display: block;
+            height: 720px;
+        }
+    }
+}
+
+.slidebanner .dot-index {
+    margin: 0 auto;
+    li {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin: 0 4px;
+        background: #adacab;
+        border: 1px solid #adacab;
+        @include crossprop(border-radius, 8px);
+    }
+    li.active {
+        background: #fff;
+    }
+}

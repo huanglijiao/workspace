@@ -1,0 +1,61 @@
+/**
+ *@file  reset css
+ *include resetcss & common frame
+ *defualt skin
+*/
+@import skin.scss
+// resets
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    text-align:center;
+    font: $font;
+}
+.wrap {
+    width: 1000px;
+    overflow: visible;
+    margin: 0 auto;
+    text-align: left;
+}
+ol, ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: $color;
+}
+.clearfix {
+    clear: both;
+}
+.skin-dark {
+    background: $skin-dark;
+    color: $color-dark;
+}
+.skin-light {
+    background: $skin-light;
+    color: $color;
+}
+
+//vip
+.promvip {
+    background: url('/static/img/bg-vip.png') center center no-repeat $skin-highlight;
+    color: $color-light;
+    a {
+        font-size: 28px;
+        span {
+            font-size: 18px;
+        }
+    }
+}
+
+// column
+.col-3 {
+    float: left;
+    width: 33.3%;
+}
+.col-5 {
+    float: left;
+    width: 20%;
+}

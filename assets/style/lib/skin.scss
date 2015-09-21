@@ -1,0 +1,30 @@
+// skin-sass 
+
+$font: 14px/1.5 "微软雅黑",Helvetica,sans-serif,Arial;
+$color: #333;
+$color-light: #fff;
+$color-highlight: {$skin-highlight};
+$color-dark: #999;
+$color-des: #666;
+$color-btn: #666;
+$color-foot: #fafafa;
+$color-foot-link: #b1b1b1;
+$color-cp: #777;
+$color-link-hover: #2b8ae8;
+$skin-btn: #ed4646;
+$skin-light: #fff;
+$skin-nav-border: #d3282b;
+$skin-dark: #f9f9f9;
+$skin-nav: rgba(255, 255, 255, 0.8);
+$skin-highlight: #dc353b;
+$skin-foot: #333131;
+$skin-foot-sp: #43434e;
+$skin-sp: #e0dede;
+
+@mixin crossprop($pro, $value) {
+    -moz-$pro: $value;
+    -webkit-$pro: $value;
+    $pro: $value;
+}
+
+

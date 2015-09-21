@@ -1,0 +1,144 @@
+/*
+ *@file homepage
+*/
+@import ../lib/skin.scss
+
+.promlink li {
+    float: left;
+    width: 33%;
+    > a {
+        display: block;
+        line-height: 42px;
+    }
+    > a span {
+        display: inline-block;
+        &:nth-child(2) {
+            width: 230px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+.ksc-intro {
+    padding: 60px 0 90px;
+    &:first-child {
+        padding: 45px 0 80px;
+    }
+    h2 {
+        font-size: 34px;
+        color: $color;
+        margin-bottom: 30px;
+        + p {
+            font-size: 14px;
+            color: $color-des;
+            margin-bottom: 50px;
+        }
+    }
+    .sq-inline {
+        background: url('/static/img/index/sp-inline.png') left top no-repeat;
+        li {
+            float: left;
+            width: 198px;
+            height: 210px;
+            text-align: center;
+            color: $color-light;
+            font-size: 22px;
+            background: rgba(115, 111, 111, 0.9);
+        }
+        li.active {
+            background: rgba(219, 51, 51, 0.9);
+        }
+    }
+    .round-inline {
+        li {
+            width: 175px;
+            height: 220px;
+            float: left;
+            margin: 0 100px 0 0;
+            &:nth-of-type(4n) {
+                margin: 0;
+            }
+        }
+    }
+    
+    .col-l {
+        float: left;
+        width: 50%;
+    }
+    
+    .col-r {
+        float: right;
+        width: 50%;
+    }
+
+    h3 {
+        font-size: 28px;
+        margin: 0 0 15px 0;
+        + p {
+            margin: 40px 0 20px;
+        }
+    }
+    
+    .btn-more {
+        color: $color-btn;
+        border: 1px solid $skin-btn;
+        @include crossprop(border-radius, 3px);
+        @include crossprop(transition, background 150ms linear);
+        &:hover {
+            background: $skin-btn;
+            color: $color-light;
+        }
+    }
+    
+    .showcase {
+        ol:first-child {
+            margin: 0 auto;
+            > li {
+                line-heigt: 32px;
+                padding: 5px 15px;
+                &:hover {
+                    color: $color-highlight;
+                }
+            }
+            > li.active {
+                background: $skin-highlight;
+                color: $color-light;
+            }
+        }
+        ol:last-child {
+            li {
+                height: 370px;
+            }
+        }
+    }
+    
+    .sp-line {
+        border-bottom: 1px solid $skin-sp;    
+    }
+    .co-link {
+        li {
+            float: left;
+            font-size: 20px;
+        }
+        img {
+            width: 128px;
+            height: 80px;
+        }
+    }
+    .col-3 {
+        span {
+            color: $color-dark;
+        }
+        a:hover {
+            color: $color-link-hover;
+        }
+    }
+}
+
+.promvip li {
+    border-right: 1px solid $color-light;
+    &:last-child {
+        border: 0;
+    }
+}

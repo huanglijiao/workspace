@@ -1,0 +1,20 @@
+// footbar css
+@import ../assets/style/lib/skin.scss
+
+footer {
+   background: $skin-foot;
+   color: $color-foot;
+   a {
+        color: $color-foot-link;
+    }
+   h4 {
+        font-size: 16px;     
+   }
+   .wrap:first-child {
+        border-bottom: 1px solid $skin-foot-sp; 
+   }
+   .site-cp {
+        color: $color-cp;
+        font-size: 12px;
+   }
+}
