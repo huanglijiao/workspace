@@ -11,16 +11,18 @@ var uglify = require('gulp-uglify');
 var minicss = require('gulp-minify-css');
 var minihtml = require('gulp-minify-html');
 var rename = require('gulp-rename');
+var replace = require('gulp-replace');
 var sourcemap = require('gulp-sourcemaps');
+var fs = require('fs');
+var path = require('path');
 
 // path
 var filepath = 'output/template/';
 var assetpath = 'output/assets/';
-var imgpath = 'output/asset/script';
 var sassfilepath  = ['widget/**/*.scss', 'assets/**/*.scss'];
 var templatepath = ['template/**/*.ejs'];
 var jspath = ['widget/**/*.js', 'assets/**/*.js'];
-
+var replacefilepath = 'output/template/**/*.html';
 
 // task
 gulp.task('compile:sass', function () {
@@ -40,7 +42,7 @@ gulp.task('compile:ejs', function () {
 
 gulp.task('start:server', function () {
     connect.server({
-        root: filepath,
+        root: 'output/',
         port: 8888,
         livereload: true
     })
@@ -57,6 +59,17 @@ gulp.task('watch:file', function () {
     gulp.watch(sassfilepath, ['compile:sass']);
 });
 
+gulp.task('replace:style', ['compile:ejs'], function () {
+    gulp.src(replacefilepath)
+        .pipe(replace(/(<!--resstyle\[)(.+?)(\]-->)/gi, '<link type="text/css" rel="stylesheet" href="$2.css"/>'))
+        .pipe(gulp.dest(filepath));
+});
+
+gulp.task('replace:script', ['compile:ejs'], function () {
+    gulp.src(replacefilepath)
+        .pipe(replace(/(<!--resscript\[)(.+?)(\]-->)/gi, '<script type="text/javascript" src="$2.js"></script>'))
+        .pipe(gulp.dest(filepath));
+});
 
 // run task
-gulp.task('dev', ['compile:sass', 'compile:ejs', 'compile:js', 'watch:file', 'start:server']);
+gulp.task('dev', ['compile:sass', 'compile:ejs', 'compile:js', 'watch:file', 'replace:style', 'replace:script', 'start:server']);
