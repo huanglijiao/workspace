@@ -3,7 +3,8 @@
  *include resetcss & common frame
  *defualt skin
 */
-@import skin.scss
+@import 'skin.scss';
+
 // resets
 * {
     margin: 0;

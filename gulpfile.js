@@ -15,13 +15,12 @@ var sourcemap = require('gulp-sourcemaps');
 
 // path
 var filepath = 'output/template/';
-var assetpath = 'output/asset/';
-var stylepath = 'output/asset/style/';
-var scriptpath = 'output/asset/script/';
+var stylepath = 'output/assets/style/';
+var scriptpath = 'output/assets/script/';
 var imgpath = 'output/asset/script';
-var sassfilepath  = ['widget/**/*.scss', 'asset/**/*.scss'];
+var sassfilepath  = ['widget/**/*.scss', 'assets/**/*.scss'];
 var templatepath = ['template/**/*.ejs'];
-var jspath = ['widget/**/*.js', 'asset/**/*.js'];
+var jspath = ['widget/**/*.js', 'assets/**/*.js'];
 
 
 // task
