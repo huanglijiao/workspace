@@ -3,7 +3,7 @@
 $font: 14px/1.5 "微软雅黑",Helvetica,sans-serif,Arial;
 $color: #333;
 $color-light: #fff;
-$color-highlight: {$skin-highlight};
+$color-highlight: #dc353b;
 $color-dark: #999;
 $color-des: #666;
 $color-btn: #666;
@@ -21,7 +21,7 @@ $skin-foot: #333131;
 $skin-foot-sp: #43434e;
 $skin-sp: #e0dede;
 
-@mixin crossprop($pro, $value) {
+@mixin crossprop($pro:border-radius, $value:3px) {
     -moz-$pro: $value;
     -webkit-$pro: $value;
     $pro: $value;
