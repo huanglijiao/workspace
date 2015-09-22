@@ -2,6 +2,7 @@
 *@file gulp
 */
 // require
+var pwd = process.env.PWD;
 var gulp = require('gulp');
 var connect = require('gulp-connect');
 var ejs = require('gulp-ejs');
@@ -15,6 +16,7 @@ var replace = require('gulp-replace');
 var sourcemap = require('gulp-sourcemaps');
 var fs = require('fs');
 var path = require('path');
+var widget = require(pwd + '/engine/widget.js');
 
 // path
 var filepath = 'output/template/';
@@ -70,6 +72,11 @@ gulp.task('replace:script', ['compile:ejs'], function () {
         .pipe(gulp.dest(filepath));
 });
 
+gulp.task('compile:widget', ['compile:ejs', 'replace:script', 'replace:style'], function () {
+    gulp.src(replacefilepath)
+        .pipe(widget())
+        .pipe(gulp.dest(filepath));
+});
 
 // run task
-gulp.task('default', ['compile:sass', 'compile:ejs', 'compile:js', 'replace:style', 'replace:script', 'watch:file', 'start:server']);
+gulp.task('dev', ['compile:sass', 'compile:ejs', 'compile:js', 'replace:style', 'replace:script', 'compile:widget', 'watch:file', 'start:server']);
