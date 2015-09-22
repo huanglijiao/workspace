@@ -63,7 +63,7 @@ function widget(opt) {
         arr.forEach(function (v, i) {
             styles += '<link type="text/css" rel="stylesheet" href="' + v + '"/>';
         });
-        style += '</head>';
+        styles += '</head>';
         return styles;
     })
     .replace('</body>', function () {
