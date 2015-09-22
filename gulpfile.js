@@ -20,7 +20,7 @@ var path = require('path');
 var filepath = 'output/template/';
 var assetpath = 'output/assets/';
 var sassfilepath  = ['widget/**/*.scss', 'assets/**/*.scss'];
-var templatepath = ['template/**/*.ejs'];
+var templatepath = ['template/**/*.ejs', 'widget/**/*.ejs'];
 var jspath = ['widget/**/*.js', 'assets/**/*.js'];
 var replacefilepath = 'output/template/**/*.html';
 
@@ -29,17 +29,14 @@ gulp.task('compile:sass', function () {
     gulp.src(sassfilepath)
         .pipe(sass())
         .on('error', util.log)
-        .pipe(gulp.dest(assetpath))
-        .pipe(connect.reload());
+        .pipe(gulp.dest(assetpath));
 });
 
 gulp.task('compile:ejs', function () {
     gulp.src(templatepath)
         .pipe(ejs())
         .on('error', util.log)
-        .pipe(gulp.dest(filepath))
-        .pipe(connect.reload());
-    //pipe(replace(/(<!--widget\[\/)(.+?)(\]-->)/gi, '<%include ' + routepath + '/widget/$2/$2.ejs%>'))
+        .pipe(gulp.dest(filepath));
 });
 
 gulp.task('start:server', function () {
@@ -52,8 +49,7 @@ gulp.task('start:server', function () {
 
 gulp.task('compile:js', function () {
     gulp.src(jspath)
-        .pipe(gulp.dest(assetpath))
-        .pipe(connect.reload());
+        .pipe(gulp.dest(assetpath));
 });
 
 gulp.task('watch:file', function () {
@@ -64,13 +60,13 @@ gulp.task('watch:file', function () {
 
 gulp.task('replace:style', ['compile:ejs'], function () {
     gulp.src(replacefilepath)
-        .pipe(replace(/(<!--resstyle\[)(.+)(\.\w+\]-->)/gi, '<link type="text/css" rel="stylesheet" href="$2.css"/>'))
+        .pipe(replace(/(<!--resstyle\[)(\S+)(\.\w+\]-->)/gi, '<link type="text/css" rel="stylesheet" href="$2.css"/>'))
         .pipe(gulp.dest(filepath));
 });
 
 gulp.task('replace:script', ['compile:ejs'], function () {
     gulp.src(replacefilepath)
-        .pipe(replace(/(<!--resscript\[)(.+)(\.\w+\]-->)/gi, '<script type="text/javascript" src="$2.js"></script>'))
+        .pipe(replace(/(<!--resscript\[)(\S+)(\.\w+\]-->)/gi, '<script type="text/javascript" src="$2.js"></script>'))
         .pipe(gulp.dest(filepath));
 });
 
