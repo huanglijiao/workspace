@@ -23,7 +23,6 @@ var sassfilepath  = ['widget/**/*.scss', 'assets/**/*.scss'];
 var templatepath = ['template/**/*.ejs'];
 var jspath = ['widget/**/*.js', 'assets/**/*.js'];
 var replacefilepath = 'output/template/**/*.html';
-var routepath = process.env.PWD;
 
 // task
 gulp.task('compile:sass', function () {
@@ -36,10 +35,11 @@ gulp.task('compile:sass', function () {
 
 gulp.task('compile:ejs', function () {
     gulp.src(templatepath)
-        .pipe(replace(/(<!--widget\[\/)(.+?)(\]-->)/gi, '<%include ' + routepath + '/widget/$2/$2.ejs%>'))
         .pipe(ejs())
         .on('error', util.log)
-        .pipe(gulp.dest(filepath));
+        .pipe(gulp.dest(filepath))
+        .pipe(connect.reload());
+    //pipe(replace(/(<!--widget\[\/)(.+?)(\]-->)/gi, '<%include ' + routepath + '/widget/$2/$2.ejs%>'))
 });
 
 gulp.task('start:server', function () {
@@ -52,7 +52,8 @@ gulp.task('start:server', function () {
 
 gulp.task('compile:js', function () {
     gulp.src(jspath)
-        .pipe(gulp.dest(assetpath));
+        .pipe(gulp.dest(assetpath))
+        .pipe(connect.reload());
 });
 
 gulp.task('watch:file', function () {
@@ -63,16 +64,16 @@ gulp.task('watch:file', function () {
 
 gulp.task('replace:style', ['compile:ejs'], function () {
     gulp.src(replacefilepath)
-        .pipe(replace(/(<!--resstyle\[)(.+?)(\.\w+\]-->)/gi, '<link type="text/css" rel="stylesheet" href="$2.css"/>'))
+        .pipe(replace(/(<!--resstyle\[)(.+)(\.\w+\]-->)/gi, '<link type="text/css" rel="stylesheet" href="$2.css"/>'))
         .pipe(gulp.dest(filepath));
 });
 
 gulp.task('replace:script', ['compile:ejs'], function () {
     gulp.src(replacefilepath)
-        .pipe(replace(/(<!--resscript\[)(.+?)(\.\w+\]-->)/gi, '<script type="text/javascript" src="$2.js"></script>'))
+        .pipe(replace(/(<!--resscript\[)(.+)(\.\w+\]-->)/gi, '<script type="text/javascript" src="$2.js"></script>'))
         .pipe(gulp.dest(filepath));
 });
 
 
 // run task
-gulp.task('default', ['compile:sass', 'compile:ejs', 'compile:js', 'replace:style', 'replace:script']);
+gulp.task('default', ['compile:sass', 'compile:ejs', 'compile:js', 'replace:style', 'replace:script', 'watch:file', 'start:server']);
