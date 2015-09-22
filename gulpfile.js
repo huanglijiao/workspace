@@ -35,10 +35,11 @@ gulp.task('compile:sass', function () {
 });
 
 gulp.task('compile:ejs', function () {
-    gulp.src(templatepath)
+    var stream = gulp.src(templatepath)
         .pipe(ejs())
         .on('error', util.log)
         .pipe(gulp.dest(filepath));
+    return stream;
 });
 
 gulp.task('start:server', function () {
@@ -61,18 +62,20 @@ gulp.task('watch:file', function () {
 });
 
 gulp.task('replace:style', ['compile:ejs'], function () {
-    gulp.src(replacefilepath)
+    var stream = gulp.src(replacefilepath)
         .pipe(replace(/(<!--resstyle\[)(\S+)(\.\w+\]-->)/gi, '<link type="text/css" rel="stylesheet" href="$2.css"/>'))
         .pipe(gulp.dest(filepath));
+    return stream;
 });
 
-gulp.task('replace:script', ['compile:ejs'], function () {
-    gulp.src(replacefilepath)
+gulp.task('replace:script', ['replace:style'], function () {
+    var stream = gulp.src(replacefilepath)
         .pipe(replace(/(<!--resscript\[)(\S+)(\.\w+\]-->)/gi, '<script type="text/javascript" src="$2.js"></script>'))
         .pipe(gulp.dest(filepath));
+    return stream;
 });
 
-gulp.task('compile:widget', ['compile:ejs', 'replace:script', 'replace:style'], function () {
+gulp.task('compile:widget', ['replace:script'], function () {
     gulp.src(replacefilepath)
         .pipe(widget())
         .pipe(gulp.dest(filepath));
