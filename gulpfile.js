@@ -62,13 +62,13 @@ gulp.task('watch:file', function () {
 
 gulp.task('replace:style', ['compile:ejs'], function () {
     gulp.src(replacefilepath)
-        .pipe(replace(/(<!--resstyle\[)(\S+)(\.\w+\]-->)/gi, '<link type="text/css" rel="stylesheet" href="$2.css"/>'))
+        .pipe(replace(/(<!--resstyle\[)(.+?)(\.\w+\]-->)/gi, '<link type="text/css" rel="stylesheet" href="$2.css"/>'))
         .pipe(gulp.dest(filepath));
 });
 
 gulp.task('replace:script', ['compile:ejs'], function () {
     gulp.src(replacefilepath)
-        .pipe(replace(/(<!--resscript\[)(\S+)(\.\w+\]-->)/gi, '<script type="text/javascript" src="$2.js"></script>'))
+        .pipe(replace(/(<!--resscript\[)(.+?)(\.\w+\]-->)/gi, '<script type="text/javascript" src="$2.js"></script>'))
         .pipe(gulp.dest(filepath));
 });
 
@@ -79,4 +79,4 @@ gulp.task('compile:widget', ['compile:ejs', 'replace:script', 'replace:style'], 
 });
 
 // run task
-gulp.task('dev', ['compile:sass', 'compile:ejs', 'compile:js', 'replace:style', 'replace:script', 'compile:widget', 'watch:file', 'start:server']);
+gulp.task('default', ['compile:sass', 'compile:ejs', 'compile:js', 'replace:style', 'replace:script', 'compile:widget', 'watch:file', 'start:server']);
