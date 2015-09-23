@@ -3,4 +3,7 @@ output/**/*.css
 
 output/**/*.html
 
+output/**/*.js
+
 *.swp
+
