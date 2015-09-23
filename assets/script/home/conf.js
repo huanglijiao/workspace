@@ -2,7 +2,7 @@
 require.config({
     baseUrl: "/assets/script",
     paths: {
-        jquery: "lib/jquery",
+        jquery: "lib/jquery"
     },
     shim: {
         jquery: {
@@ -12,6 +12,6 @@ require.config({
 });
 
 define(function (require) {
-    require('home:init');
-    console.log('###');
+    /**不同页面init路径不同*/
+    require('home/init');
 });

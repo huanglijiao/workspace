@@ -69,8 +69,10 @@ gulp.task('compile:js', function () {
 
 gulp.task('watch:file', function () {
     gulp.watch(jspath, ['compile:js']);
+    gulp.watch(jspath_lib, ['compile:js']);
     gulp.watch(templatepath, ['compile:ejs', 'replace:style', 'replace:script', 'compile:widget']);
     gulp.watch(sassfilepath, ['compile:sass']);
+    gulp.watch(sassfilepath_lib, ['compile:sass']);
 });
 
 gulp.task('replace:style', ['compile:ejs'], function () {
