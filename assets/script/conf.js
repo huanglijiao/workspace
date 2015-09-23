@@ -1,11 +1,12 @@
 // require conf
 require.config({
-    baseUrl: "/assets/script/lib",
+    baseUrl: "/assets/script",
     paths: {
-        conf: "/assets/script",
-        jquery: "/assets/script/lib/jquery"
+        jquery: "lib/jquery"
+    },
+    shim: {
+        jquery: {
+            export: 'jquery'
+        }
     }
-});
-define(['jquery'], function ($) {
-    return $;
 });

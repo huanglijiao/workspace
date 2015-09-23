@@ -21,14 +21,23 @@ var widget = require(pwd + '/engine/widget.js');
 // path
 var filepath = 'output/template/';
 var assetpath = 'output/assets/';
-var sassfilepath  = ['widget/**/*.scss', 'assets/**/*.scss'];
+var assetstylepath = 'output/assets/style/widget';
+var assetscriptpath = 'output/assets/script/widget';
+var sassfilepath  = ['widget/**/*.scss'];
+var sassfilepath_lib  = ['assets/**/*.scss'];
 var templatepath = ['template/**/*.ejs', 'widget/**/*.ejs'];
-var jspath = ['widget/**/*.js', 'assets/**/*.js'];
+var jspath = ['widget/**/*.js'];
+var jspath_lib = ['assets/**/*.js'];
 var replacefilepath = 'output/template/**/*.html';
 
 // task
 gulp.task('compile:sass', function () {
     gulp.src(sassfilepath)
+        .pipe(sass())
+        .on('error', util.log)
+        .pipe(gulp.dest(assetstylepath));
+    
+    gulp.src(sassfilepath_lib)
         .pipe(sass())
         .on('error', util.log)
         .pipe(gulp.dest(assetpath));
@@ -52,6 +61,9 @@ gulp.task('start:server', function () {
 
 gulp.task('compile:js', function () {
     gulp.src(jspath)
+        .pipe(gulp.dest(assetscriptpath));
+
+    gulp.src(jspath_lib)
         .pipe(gulp.dest(assetpath));
 });
 

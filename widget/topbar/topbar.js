@@ -1,5 +1,8 @@
-define("widget:topbar", ['widget:footbar'],function(footbar) {
-    console.log('top---');
-    footbar.run();
-    console.log('/top');
+/**
+*@file
+*/
+define(function (require, exports, module) {
+     console.log(module);
+     var footbar = require('footbar');
+     exports.test = 1;
 });

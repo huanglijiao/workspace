@@ -1,10 +1,13 @@
 /*
 * test define
 */
-define('widget:footbar', ['jquery'], function ($) {
+define(function (require, exports, module) {
+
     var test = {};
+    console.log(window);
     test.run = function () {
-        console.log('runle....');
+        console.log('footbar');
     };
-    return test;
+    window.test = 're';
+    exports.test = test;
 });

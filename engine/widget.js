@@ -24,13 +24,15 @@ function filestream(filecontent) {
 // 插件级别函数 (处理文件)
 function widget(opt) {
   var tpath = '';
-  var rpath = '';
+  var stylepath = '';
+  var scriptpath = '';
   if (opt) {
         tpath = opt.tpath ? opt.tpath : 'output/template';
         rpath = opt.rpath ? opt.rpath : 'output/assets';
   } else {
         tpath = 'output/template';
-        rpath = 'output/assets';
+        stylepath = 'output/assets/style/widget';
+        scriptpath = 'output/assets/script/widget';
   }
   // 创建一个让每个文件通过的 stream 通道
   return through.obj(function(file, enc, cb) {
@@ -44,8 +46,8 @@ function widget(opt) {
     file.contents = new Buffer(String(file.contents).replace(/<!--widget\[(\S+?)\]-->/gi, function ($0, $1) {
         var path = $1;
         var widgetArr = [tpath + $1 +  $1 + '.html',
-                         rpath + $1 +  $1 + '.css',
-                         rpath + $1 +  $1 + '.js'];
+                         stylepath + $1 +  $1 + '.css',
+                         scriptpath + $1 +  $1 + '.js'];
         var html = '';
         widgetArr.forEach(function (v, i) {
             if (getfile(v)) { // file exist
@@ -70,7 +72,7 @@ function widget(opt) {
         var arr = scriptArr;
         var scripts = '';
         arr.forEach(function (v, i) {
-            scripts += '<script src="' + v + '"></script>';
+            scripts += '<script type="text/javascript" src="' + v + '"></script>';
         });
         scripts += '</body>';
         return scripts;
