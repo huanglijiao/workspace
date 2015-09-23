@@ -89,7 +89,9 @@ gulp.task('replace:script', ['replace:style'], function () {
 
 gulp.task('compile:widget', ['replace:script'], function () {
     gulp.src(replacefilepath)
-        .pipe(widget())
+        .pipe(widget({
+             skipjs: true
+         }))
         .pipe(gulp.dest(filepath));
 });
 

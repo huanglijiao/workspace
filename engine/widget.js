@@ -28,8 +28,10 @@ function widget(opt) {
   var scriptpath = '';
   if (opt) {
         tpath = opt.tpath ? opt.tpath : 'output/template';
-        rpath = opt.rpath ? opt.rpath : 'output/assets';
-  } else {
+        stylepath = opt.stylepath ? opt.stylepath : 'output/assets/style/widget';
+        scriptpath = opt.scriptpath ? opt.scriptpath : 'output/assets/script/widget';
+        skipjs = opt.skipjs ? opt.skipjs : false;
+ } else {
         tpath = 'output/template';
         stylepath = 'output/assets/style/widget';
         scriptpath = 'output/assets/script/widget';
@@ -53,7 +55,7 @@ function widget(opt) {
             if (getfile(v)) { // file exist
                 if (i===0) html = readfile(v);
                 if (i===1) styleArr.push(v.replace('output',''));
-                if (i===2) scriptArr.push(v.replace('output',''));
+                if (i===2 && !skipjs) scriptArr.push(v.replace('output',''));
             }
         });
         
