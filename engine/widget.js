@@ -27,12 +27,12 @@ function widget(opt) {
   var stylepath = '';
   var scriptpath = '';
   if (opt) {
-        tpath = opt.tpath ? opt.tpath : 'output/template';
+        tpath = opt.tpath ? opt.tpath : 'output/template/widget/';
         stylepath = opt.stylepath ? opt.stylepath : 'output/assets/style/widget';
         scriptpath = opt.scriptpath ? opt.scriptpath : 'output/assets/script/widget';
         skipjs = opt.skipjs ? opt.skipjs : false;
  } else {
-        tpath = 'output/template';
+        tpath = 'output/template/widget';
         stylepath = 'output/assets/style/widget';
         scriptpath = 'output/assets/script/widget';
   }
@@ -47,12 +47,13 @@ function widget(opt) {
     var scriptArr = [];
     file.contents = new Buffer(String(file.contents).replace(/<!--widget\[(\S+?)\]-->/gi, function ($0, $1) {
         var path = $1;
-        var widgetArr = [tpath + $1 +  $1 + '.html',
-                         stylepath + $1 +  $1 + '.css',
-                         scriptpath + $1 +  $1 + '.js'];
+        var widgetArr = [tpath + $1 + '.html',
+                         stylepath + $1 + '.css',
+                         scriptpath +  $1 + '.js'];
         var html = '';
         widgetArr.forEach(function (v, i) {
             if (getfile(v)) { // file exist
+
                 if (i===0) html = readfile(v);
                 if (i===1) styleArr.push(v.replace('output',''));
                 if (i===2 && !skipjs) scriptArr.push(v.replace('output',''));
