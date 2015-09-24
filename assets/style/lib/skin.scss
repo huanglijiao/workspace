@@ -28,4 +28,8 @@ $skin-sp: #e0dede;
     #{$pro}: $value;
 }
 
-
+@mixin transitionpro($pro) {
+    -moz-transition:$pro 100ms linear;
+    -webkit-transition:$pro 100ms linear;
+    transition:$pro 100ms linear;
+}
