@@ -113,11 +113,16 @@ gulp.task('compile:widget', ['replace:script'], function () {
         .pipe(gulp.dest(filepath));
 });
 
+gulp.task('cp:img', function () {
+    gulp.src('assets/img/**/*.png')
+        .pipe(gulp.dest('output/assets/img'));
+});
+
 gulp.task('watch:file', function () {
-    gulp.watch(['widget/**/*.js', 'widget/**/*.scss', 'widget/**/*.ejs'], ['compile:js', 'compile:sass', 'compile:widget']);
-    gulp.watch(sassfilepath_lib, ['compile:sass']);
-    gulp.watch(jspath_lib, ['compile:js']);
-    gulp.watch(templatepath, ['compile:ejs', 'replace:style', 'replace:script', 'compile:widget']);  
+    gulp.watch(['widget/**/*.js', 'widget/**/*.scss', 'widget/**/*.ejs'], ['compile:js', 'compile:sass', 'compile:widget', 'cp:img']);
+    gulp.watch(sassfilepath_lib, ['compile:sass', 'cp:img']);
+    gulp.watch(jspath_lib, ['compile:js', 'cp:img']);
+    gulp.watch(templatepath, ['compile:ejs', 'replace:style', 'replace:script', 'compile:widget', 'cp:img']);  
 });
 
 gulp.task('start:server', function () {
@@ -128,4 +133,4 @@ gulp.task('start:server', function () {
     })
 });
 // run task
-gulp.task('dev', ['compile:sass', 'compile:ejs', 'compile:js', 'replace:style', 'replace:script', 'compile:widget', 'watch:file', 'start:server']);
+gulp.task('dev', ['compile:sass', 'compile:ejs', 'compile:js', 'replace:style', 'replace:script', 'compile:widget', 'cp:img','watch:file', 'start:server']);
