@@ -114,7 +114,7 @@ gulp.task('compile:widget', ['replace:script'], function () {
 });
 
 gulp.task('watch:file', function () {
-    gulp.watch(widgetpath, ['compile:js', 'compile:sass', 'compile:ejs']);
+    gulp.watch(['widget/**/*.js', 'widget/**/*.scss', 'widget/**/*.ejs'], ['compile:js', 'compile:sass', 'compile:widget']);
     gulp.watch(sassfilepath_lib, ['compile:sass']);
     gulp.watch(jspath_lib, ['compile:js']);
     gulp.watch(templatepath, ['compile:ejs', 'replace:style', 'replace:script', 'compile:widget']);  
