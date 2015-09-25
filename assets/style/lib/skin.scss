@@ -36,3 +36,16 @@ $skin-border: #e0e0e0;
     transition:$pro 100ms linear;
 }
 
+//animate
+@keyframes opacityChange {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@-moz-keyframes opacityChange {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@-o-keyframes opacityChange {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
