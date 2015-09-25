@@ -6,12 +6,17 @@
 .topnav {
     background: $skin-nav;
     padding: 18px 0 0 0;
+    border-bottom: 1px solid $skin-navwrap-border;
 }
-.topnav .logo a {
-    text-index: -9999em;
-    display: block;
-    width: 124px;
-    background: url('/static/img/logo.png') left top no-repeat;
+.topnav .logo {
+    float: left;
+    a {
+        text-indent: -9999em;
+        display: block;
+        width: 120px;
+        height: 34px;
+        background: url('/assets/img/static/logo.png') left top no-repeat;
+    }
 }
 .topnav .nav {
     float: right;
@@ -30,5 +35,6 @@
 .topnav .nav li.current, .topnav .nav li.active {
     > a {
         border-bottom: 3px solid $skin-nav-border;
+        margin-bottom: -1px;
     }
 }
