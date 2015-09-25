@@ -4,8 +4,7 @@
 @import  '../../assets/style/lib/skin.scss';
 .slidebanner {
     height: 720px;
-    overflow: hidden;
-    position:relative;
+    margin-top: -56px; 
     .banner {
         margin: 0 auto;
         a {
