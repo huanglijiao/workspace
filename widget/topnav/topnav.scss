@@ -32,7 +32,7 @@
             width: 120px;
             float: left;
             margin-right: 40px;
-            paddin-bottom: 25px;   
+            padding-bottom: 25px;   
             &:nth-of-type(4) {
                 margin-right: 0;
             }
@@ -51,6 +51,10 @@
                 display: block;
                 line-height: 30px;
                 padding-left: 30px;
+                &:hover {
+                    color: $color-highlight;
+                    
+                }
                 span {
                     display: inline-block;
                     width: 20px;
@@ -67,6 +71,8 @@
 }
 .topnav .logo {
     float: left;
+    position: relative;
+    top: -8px;
     a {
         text-indent: -9999em;
         display: block;
@@ -77,6 +83,8 @@
 }
 .topnav .nav {
     float: right;
+    position: relative;
+    z-index: 1;
 }
 .topnav .nav li {
     float: left;
@@ -85,13 +93,17 @@
     &:last-child {
         margin: 0;
     }
+    &:hover {
+        div.subnav {
+            display: block;
+            @include crossprop(animation, opacityChange 300ms);
+        }
+    }
     > a {
         display:block;
-        padding: 10px 8px 20px;
-    }
-    &:hover div.subnav {
-        display: block;
-        @include crossprop(animation, opacityChange 300ms);
+        font-size: 16px;
+        line-height: 20px;
+        padding: 0 8px 15px;
     }
 }
 .topnav .nav li.current, .topnav .nav li.active {
