@@ -8,6 +8,7 @@
     padding: 18px 0 0 0;
     border-bottom: 1px solid $skin-navwrap-border;
     div.subnav {
+        display: none;
         position: absolute;
         width: 600px;
         padding: 25px;
@@ -87,6 +88,10 @@
     > a {
         display:block;
         padding: 10px 8px 20px;
+    }
+    &:hover div.subnav {
+        display: block;
+        @include crossprop(animation, opacityChange 300ms);
     }
 }
 .topnav .nav li.current, .topnav .nav li.active {
