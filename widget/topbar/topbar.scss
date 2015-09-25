@@ -5,32 +5,27 @@
     color: $color-light;
     height: 34px;
 }
-.topbar ol {
-    margin: 0 0 0 485px;
-}
-.topbar li {
+.topbar .wrap > ol li {
     line-height: 34px;
     padding: 0 20px;
     float: right;
     a {
         color: $color-light;
     }
-}
-.topbar li:first-child {
-    line-height: 24px;
-    margin: 4px 0;
-    border: 1px solid $color-light;
-    @include crossprop(border-radius, 3px);
-    padding: 0 8px;
-}
-.topbar .sp-inline {
-    margin-right: -20px;
-}
-.topbar li:last-child {
-    background: url('/assets/img/common/ico-tel.png') left center no-repeat;
+    &:first-child {
+        line-height: 24px;
+        margin: 4px 0;
+        border: 1px solid $color-light;
+        @include crossprop(border-radius, 3px);
+        padding: 0 8px;
+    }
+    &:last-child {
+         background: url('/assets/img/common/ico-tel.png') left center no-repeat;
+    }
 }
 .topbar li.sp-line {
     padding-right: 0;
+    margin-right: -20px;
     span {
         margin-left: 15px;
     }
@@ -58,19 +53,67 @@
     }
     > div {
         position: absolute;
-        height: 200px;
-        border: 1px solid red;
-    }
-    &:hover {
-        background: $skin-light;
-        color: $color-cp;
-        .ico-arr {
-            background-position:left top;
+        border: 1px solid $skin-light;
+        left: 0;
+        padding: 0 10px 0 15px;
+        width:125px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        background: #fff;
+        color: $color;
+        height: 0;
+        > ol li {
+            float: none;
+            margin: 0 !important;
+            padding: 0 !important;
+            cursor: default;
+            &:first-child {
+                padding-top: 10px;
+                position: relative;
+                color: $color-dark;
+                > a {
+                    position: absolute;
+                    display: inline-block;
+                    right: 0;
+                    top: 10px;
+                    color: $color-light;
+                    background: $skin-btn-a;
+                    padding: 0 5px;
+                    @include crossprop(border-radius, 3px);
+                }
+            }
         }
-        @include transitionpro(background);
+        a {
+            color: $color;
+            display: block;
+            &:hover {
+                color: $color-highlight;
+            }
+        }
+        a.btn-logout {
+            border-top: 1px solid $skin-border;
+            color: $color-btn;
+            margin-top: 10px;
+            &:hover {
+                color: $color-highlight;
+            }
+        }
     }
 }
-
+.topbar li.usr-info.active {
+    background: $skin-light;
+    color: $color-cp;
+    @include crossprop(box-shadow, 1px 2px 2px rgba(0, 0, 0, 0.3));
+    @include transitionpro(background);
+    .ico-arr {
+        background-position:left top;
+    }
+    div.usr-info {
+        height: 245px;
+        @include transitionpro(height);
+        @include crossprop(box-shadow, 1px 2px 2px rgba(0, 0, 0, 0.3));
+    }
+}
 
 
 

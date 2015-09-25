@@ -12,6 +12,7 @@ $color-foot-link: #b1b1b1;
 $color-cp: #777;
 $color-link-hover: #2b8ae8;
 $skin-btn: #ed4646;
+$skin-btn-a: #ff7f00;
 $skin-light: #fff;
 $skin-nav-border: #d3282b;
 $skin-dark: #f9f9f9;
@@ -20,7 +21,7 @@ $skin-highlight: #dc353b;
 $skin-foot: #333131;
 $skin-foot-sp: #43434e;
 $skin-sp: #e0dede;
-
+$skin-border: #e0e0e0;
 
 @mixin crossprop($pro, $value) {
     -moz-#{$pro}: $value;
