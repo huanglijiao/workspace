@@ -26,6 +26,8 @@ $skin-border: #e0e0e0;
 
 @mixin crossprop($pro, $value) {
     -moz-#{$pro}: $value;
+    -o-#{$pro}: $value;
+    -ms-#{$pro}: $value;
     -webkit-#{$pro}: $value;
     #{$pro}: $value;
 }

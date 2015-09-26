@@ -4,29 +4,60 @@
 @import  '../../assets/style/lib/skin.scss';
 .slidebanner {
     height: 720px;
-    margin-top: -56px; 
+    position: relative;
+    top: -56px;
+    margin-bottom: -56px;
+    overflow: hidden;
     .banner {
-        margin: 0 auto;
+        li {
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            // @include crossprop(background-size, 100% 100%);
+        }
         a {
             display: block;
+            text-align: center;
+            > .wrap {
+                text-align: left;
+                margin: 0 auto;
+                position: relative;
+                height: 720px;
+                img {
+                    position: absolute;
+                    &:first-child {
+                        left: -80px;
+                        top: 270px;
+                    }
+                    &:last-child {
+                        right: -175px;
+                        top: 122px;
+                    }
+                }
+            }
         }
         img {
             display: block;
-            height: 720px;
         }
     }
 }
 
 .slidebanner .dot-index {
-    margin: 0 auto;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    margin-left: -73px;
     li {
         display: inline-block;
+        cursor: pointer;
         width: 16px;
         height: 16px;
         margin: 0 4px;
+        text-indent: -9999em;
+        overflow: hidden;
         background: #adacab;
         border: 1px solid #adacab;
         @include crossprop(border-radius, 8px);
+        @include transitionpro(background);
     }
     li.active {
         background: #fff;
