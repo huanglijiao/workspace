@@ -36,7 +36,7 @@ define(function (require, exports, module) {
         self.handler = opt.handler ? $(opt.handler) : false;
         self.dir = opt.dir ? opt.dir : 'left';
         // time - ms
-        self.animate = opt.animate ? opt.animate : 10000;
+        self.animate = opt.animate ? opt.animate : 9500;
         // handler
         if (!self.handler) {
             self.conf.push(0);
@@ -90,13 +90,16 @@ define(function (require, exports, module) {
             _index = index ? index : 0,
             maxsize = s.size(),
             itemwidth = window.innerWidth;
-        
+       
+        // console.log(o.conf);
+        if (o.conf[2] === 0) return;
+
         // 校正index
         _index = _index >= maxsize ? 0 : _index;
         
         c.css({
             'transform': 'translateX(' + -1 * _index * itemwidth + 'px)',
-            'transition': 'transform 1000ms'
+            'transition': 'transform 500ms'
         });
         
         s.removeClass('active').eq(_index).addClass('active');

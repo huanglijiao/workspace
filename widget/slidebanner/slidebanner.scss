@@ -90,69 +90,138 @@
 
 // animate
 @keyframes slidebanner {
-    0% {transform: scale3d(1.05, 1.05, 1.05);}
-    100% {transform: scale3d(1, 1, 1);}
+    0% {
+        transform: scale3d(1.05, 1.05, 1.05) translateX(600px);
+    }
+    5% {
+        transform: scale3d(1.05, 1.05, 1.05) translateX(0);
+    }
+    95% {
+        transform: scale3d(1, 1, 1) translateX(0);   
+    }
+    96% {
+        transform: scale3d(1, 1, 1) translateX(-600px);
+    }
+    100% {
+        transform: scale3d(1, 1, 1) translateX(-600px);
+    }
 }
 @keyframes islidebanner {
-    0% {transform: scale3d(0.92, 0.92, 0.92);}
-    100% {transform: scale3d(1, 1, 1);}
+    0% {
+        transform: scale3d(0.92, 0.92, 0.92) translateX(600px);
+    }
+    7% {
+        transform: scale3d(0.92, 0.92, 0.92) translateX(0);
+    }
+    96% {
+        transform: scale3d(1, 1, 1) translateX(0);   
+    }
+    97% {
+        transform: scale3d(1, 1, 1) translateX(-600px);
+    }
+    100% {
+        transform: scale3d(1, 1, 1) translateX(-600px);
+    }
 }
 @-moz-keyframes slidebanner {
-    0% {-moz-transform: scale3d(1.05, 1.05, 1.05);}
-    100% {-moz-transform: scale3d(1, 1, 1);}
+    0% {
+        -moz-transform: scale3d(1.05, 1.05, 1.05) translateX(600px);
+    }
+    5% {
+        -moz-transform: scale3d(1.05, 1.05, 1.05) translateX(0);
+    }
+    95% {
+        -moz-transform: scale3d(1, 1, 1) translateX(0);   
+    }
+    96% {
+        -moz-transform: scale3d(1, 1, 1) translateX(-600px);
+    }
+    100% {
+        -moz-transform: scale3d(1, 1, 1) translateX(-600px);
+    }
 }
 @-moz-keyframes islidebanner {
-    0% {-moz-transform: scale3d(0.92, 0.92, 0.92);}
-    100% {-moz-transform: scale3d(1, 1, 1);}
+   0% {
+        －moz-transform: scale3d(0.92, 0.92, 0.92) translateX(600px);
+    }
+    7% {
+        -moz-transform: scale3d(0.92, 0.92, 0.92) translateX(0);
+    }
+    96% {
+        -moz-transform: scale3d(1, 1, 1) translateX(0);   
+    }
+    97% {
+        -moz-transform: scale3d(1, 1, 1) translateX(-600px);
+    }
+    100% {
+        -moz-transform: scale3d(1, 1, 1) translateX(-600px);
+    }
 }
 @-o-keyframes slidebanner {
-    0% {-o-transform: scale3d(1.05, 1.05, 1.05);}
-    100% {-o-transform: scale3d(1, 1, 1);}
+    0% {
+        -o-transform: scale3d(1.05, 1.05, 1.05) translateX(600px);
+    }
+    5% {
+        -o-transform: scale3d(1.05, 1.05, 1.05) translateX(0);
+    }
+    95% {
+        -o-transform: scale3d(1, 1, 1) translateX(0);   
+    }
+    96% {
+        -o-transform: scale3d(1, 1, 1) translateX(-600px);
+    }
+    100% {
+        -o-transform: scale3d(1, 1, 1) translateX(-600px);
+    }
 }
 @-o-keyframes islidebanner {
-    0% {-o-transform: scale3d(0.92, 0.92, 0.92);}
-    100% {-o-transform: scale3d(1, 1, 1);}
+    0% {
+        -o-transform: scale3d(0.92, 0.92, 0.92) translateX(600px);
+    }
+    7% {
+        -o-transform: scale3d(0.92, 0.92, 0.92) translateX(0);
+    }
+    96% {
+        -o-transform: scale3d(1, 1, 1) translateX(0);   
+    }
+    97% {
+        -o-transform: scale3d(1, 1, 1) translateX(-600px);
+    }
+    100% {
+        -o-transform: scale3d(1, 1, 1) translateX(-600px);
+    }
 }
 @-ms-keyframes slidebanner {
-    0% {-ms-transform: scale3d(1.05, 1.05, 1.05);}
-    100% {-ms-transform: scale3d(1, 1, 1);}
+    0% {
+        -ms-transform: scale3d(1.05, 1.05, 1.05) translateX(600px);
+    }
+    5% {
+        -ms-transform: scale3d(1.05, 1.05, 1.05) translateX(0);
+    }
+    95% {
+        -ms-transform: scale3d(1, 1, 1) translateX(0);   
+    }
+    96% {
+        -ms-transform: scale3d(1, 1, 1) translateX(-600px);
+    }
+    100% {
+        -ms-transform: scale3d(1, 1, 1) translateX(-600px);
+    }
 }
 @-ms-keyframes islidebanner {
-    0% {-ms-transform: scale3d(0.92, 0.92, 0.92);}
-    100% {-ms-transform: scale3d(1, 1, 1);}
-}
-
-// animate out
-@keyframes outbanner {
-    0% {transform: translateX(0);}
-    100% {transform: translateX(-500px);}
-}
-@-moz-keyframes outbanner {
-    0% {-moz-transform: translateX(0);}
-    100% {-moz-transform: translateX(-500px);}
-}
-@-o-keyframes outbanner {
-    0% {-o-transform: translateX(0);}
-    100% {-o-transform: translateX(-500px);}
-}
-@-ms-keyframes outbanner {
-    0% {-ms-transform: translateX(0);}
-    100% {-ms-transform: translateX(-500px);}
-}
-// animate in
-@keyframes inbanner {
-    0% {transform: translateX(500px);}
-    100% {transform: translateX(0);}
-}
-@-moz-keyframes inbanner {
-    0% {-moz-transform: translateX(500px);}
-    100% {-moz-transform: translateX(0);}
-}
-@-o-keyframes inbanner {
-    0% {-o-transform: translateX(500px);}
-    100% {-o-transform: translateX(0);}
-}
-@-ms-keyframes inbanner {
-    0% {-ms-transform: translateX(500px);}
-    100% {-ms-transform: translateX(0);}
+    0% {
+        -ms-transform: scale3d(0.92, 0.92, 0.92) translateX(600px);
+    }
+    7% {
+        -ms-transform: scale3d(0.92, 0.92, 0.92) translateX(0);
+    }
+    96% {
+        -ms-transform: scale3d(1, 1, 1) translateX(0);   
+    }
+    97% {
+        -ms-transform: scale3d(1, 1, 1) translateX(-600px);
+    }
+    100% {
+        -ms-transform: scale3d(1, 1, 1) translateX(-600px);
+    }
 }
