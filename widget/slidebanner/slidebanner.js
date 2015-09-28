@@ -35,6 +35,7 @@ define(function (require, exports, module) {
         self.slide = $(opt.slide);
         self.handler = opt.handler ? $(opt.handler) : false;
         self.dir = opt.dir ? opt.dir : 'left';
+        self.fits = opt.fits ? opt.fits : false;
         // time - ms
         self.animate = opt.animate ? opt.animate : 9500;
         // handler
@@ -75,8 +76,8 @@ define(function (require, exports, module) {
         var _index = index >> 0;
         var self = this;
         switch (_index) {
-            case 0 : dot(value, self.handler, self.slide.size()); break;
-            case 1 : banner(value, self.container, self.slide); break;
+            case 0 : dot(value, self); break;
+            case 1 : banner(value, self); break;
             case 2 : switching(value, self); break;
         } 
 
@@ -89,7 +90,7 @@ define(function (require, exports, module) {
             h = o.handler,
             _index = index ? index : 0,
             maxsize = s.size(),
-            itemwidth = window.innerWidth;
+            itemwidth = o.fits ? $('.wrap').eq(0).width() : window.innerWidth;
        
         // console.log(o.conf);
         if (o.conf[2] === 0) return;
@@ -113,29 +114,31 @@ define(function (require, exports, module) {
         }, time);
     }
     
-    function banner(v, container, slide) {
+    function banner(v, obj) {
         var dir = v >> 0,
-            c = container,
-            s = slide;
+            c = obj.container,
+            s = obj.slide;
         
         switch (dir) {
             case 4 : // 左侧
-                leftBanner(c, s);
+                leftBanner(c, s, obj.fits);
                 break;
         }
     };
     
-    function leftBanner(container, slide) {
+    function leftBanner(container, slide, fits) {
         var c = container,
             s = slide,
-            itemwidth = window.innerWidth,
+            itemwidth = fits ? $('.wrap').eq(0).width() : window.innerWidth,
             size = s.size();
     
         var maxwidth = itemwidth * size;
+
         c.css({
             'width': maxwidth + 'px',
             'overflow': 'hidden'
         });
+        
         s.css({
             'float': 'left',
             'width': itemwidth + 'px'
@@ -143,14 +146,16 @@ define(function (require, exports, module) {
     };
 
 
-    function dot(v, obj, size) {
-        var maxwidth = obj.width()/2;
+    function dot(v, obj) {
+        var o = obj.handler;
+        var maxwidth = o.width()/2;
+        var size = obj.slide.size();
         if (v && size > 1) {
-            obj.css({
+            o.css({
                 'margin-left': -maxwidth + 'px',
                 'visibility': 'visible'
             });
-            obj.find('li').eq(0).addClass('active');
+            o.find('li').eq(0).addClass('active');
         }
     }
    
