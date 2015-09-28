@@ -1,6 +1,6 @@
 // skin-sass 
 
-$font: 14px/1.5 "微软雅黑",Helvetica,sans-serif,Arial;
+$font: 14px/1.5 "Microsoft Yahei", Helvetica, sans-serif, Arial;
 $color: #333;
 $color-light: #fff;
 $color-highlight: #dc353b;
@@ -23,6 +23,7 @@ $skin-foot: #333131;
 $skin-foot-sp: #43434e;
 $skin-sp: #e0dede;
 $skin-border: #e0e0e0;
+$skin-title-border: #ccc;
 
 @mixin crossprop($pro, $value...) {
     -moz-#{$pro}: $value;

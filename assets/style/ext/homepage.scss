@@ -57,13 +57,11 @@
                 span.ico-img {
                     background: transparent;
                     @include crossprop(transform, translateY(11px));
-                    @include transitionpropmix(transform 400ms, background 200ms);
                     img {
                         @include crossprop(filter, invert(1));
                     }
                     + section.intro {
                          @include crossprop(transform, translateY(-45px));
-                         @include transproptime(transform, 400ms);
                     }
                 }
             }
@@ -83,6 +81,7 @@
                     height: 82px;
                     @include crossprop(border-radius, 41px);
                     @include crossprop(transform, translateY(44px));
+                    @include transitionpropmix(transform 400ms, background 300ms);
                     position: relative;
                     margin: 0 auto 64px;
                     img {
@@ -90,22 +89,108 @@
                         height: 43px;
                         margin-top: 20px;
                     }
+                    + section.intro {
+                         @include transproptime(transform, 400ms);
+                    }
                 }
             }
         }
     }
     .round-inline {
+        + .clearfix {
+            margin-bottom: -50px;
+        }
         li {
             width: 175px;
             height: 220px;
             float: left;
-            margin: 0 100px 0 0;
+            margin: 0 100px 50px 0;
             &:nth-of-type(4n) {
                 margin: 0;
             }
+            &:nth-of-type(5) {
+                clear: both;
+            }
+            a {
+                text-align: center;
+                display: block;
+                font-size: 22px;
+            }
+            img {
+                margin: 0 auto 15px;
+                display: block;
+                width: 175px;
+                height: 175px;
+                position: relative;
+                @include transproptime(transform, 200ms);
+            }
+            .round-wrap {
+                position: relative;
+                &:after, &:before{
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    content: "";
+                    @include crossprop(border-radius, 88px);
+                }
+                &:before {
+                    color: #fff;
+                    @include crossprop(transform, translateX(-90px));
+                }
+            }
+            &:hover {
+                img {
+                    @include crossprop(transform, scale3d(1.1, 1.1, 1.1));
+                }
+                .disabled img {
+                    @include crossprop(transform, scale3d(1, 1, 1));
+                }
+                .disabled .round-wrap {
+                    &:after {
+                        background: rgba(126, 123, 124, 0.9);
+                        padding: 80px 0 0 0;
+                        @include transproptime(background, 200ms);
+                    }
+                    &:before {
+                        content: "敬请期待";
+                        z-index: 1;
+                        padding: 80px 0 0 0;
+                        @include crossprop(transform, translateX(0));
+                        @include transproptime(transform, 300ms);
+                    }
+                }
+            }
         }
     }
-    
+    .round-inline.active li{
+        &:nth-of-type(1) img{
+            @include crossprop(animation, eachscale 200ms);
+        }
+        &:nth-of-type(2) img{
+            @include crossprop(animation, eachscale 400ms);
+        }
+        &:nth-of-type(3) img{
+            @include crossprop(animation, eachscale 600ms);
+        }
+        &:nth-of-type(4) img{
+            @include crossprop(animation, eachscale 800ms);
+        }
+        &:nth-of-type(5) img{
+            @include crossprop(animation, eachscale 200ms);
+        }
+        &:nth-of-type(6) img{
+            @include crossprop(animation, eachscale 400ms);
+        }
+        &:nth-of-type(7) img{
+            @include crossprop(animation, eachscale 600ms);
+        }
+        &:nth-of-type(8) img{
+            @include crossprop(animation, eachscale 800ms);
+        }
+    }   
+ 
     .col-l {
         float: left;
         width: 50%;
@@ -118,9 +203,15 @@
 
     h3 {
         font-size: 28px;
-        margin: 0 0 15px 0;
+        margin: 0 0 5px 0;
+        font-weight: normal;
+        display: inline-block;
+        border-bottom: 1px solid $skin-title-border;
+        padding-bottom: 8px;
         + p {
-            margin: 40px 0 20px;
+            margin: 30px 0 20px;
+            color: $color-des;
+            line-height: 1.75em;
         }
     }
     
@@ -129,6 +220,7 @@
         border: 1px solid $skin-btn;
         @include crossprop(border-radius, 3px);
         @include crossprop(transition, background 150ms linear);
+        padding: 8px 26px;
         &:hover {
             background: $skin-btn;
             color: $color-light;
@@ -187,3 +279,8 @@
     }
 }
 
+// animate
+@keyframes eachscale {
+    0% { transform: scale3d(1.2, 1.2, 1.2);}
+    100% { transform: scale3d(1, 1, 1);}
+}
