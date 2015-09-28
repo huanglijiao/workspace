@@ -9,30 +9,35 @@
     > a {
         display: block;
         line-height: 42px;
+        &:hover {
+            color: $color-highlight;
+        }
     }
     > a span {
         display: inline-block;
         &:nth-child(2) {
-            width: 230px;
+            display: inline;           
             overflow: hidden;
             text-overflow: ellipsis;
         }
     }
 }
-
+.promlink + .ksc-intro {
+    padding: 45px 0 80px !important;
+}
 .ksc-intro {
     padding: 60px 0 90px;
-    &:first-child {
-        padding: 45px 0 80px;
-    }
     h2 {
+        text-align: center;
         font-size: 34px;
         color: $color;
         margin-bottom: 30px;
+        font-weight: normal;
         + p {
             font-size: 14px;
             color: $color-des;
             margin-bottom: 50px;
+            text-align: center;
         }
     }
     .sq-inline {
