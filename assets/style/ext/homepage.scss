@@ -224,6 +224,11 @@
             @include crossprop(transform, scale3d(0.5, 0.5, 0.5));
         }
     }
+    .col-l.active {
+        img:nth-child(3) {
+            @include crossprop(animation, cloudy 3000ms);
+        }
+    }
     
     .col-r {
         float: right;
@@ -312,4 +317,7 @@
 @keyframes eachscale {
     0% { transform: scale3d(1.2, 1.2, 1.2);}
     100% { transform: scale3d(1, 1, 1);}
+}
+@keyframes cloudy {
+    
 }
