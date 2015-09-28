@@ -24,7 +24,7 @@ $skin-foot-sp: #43434e;
 $skin-sp: #e0dede;
 $skin-border: #e0e0e0;
 
-@mixin crossprop($pro, $value) {
+@mixin crossprop($pro, $value...) {
     -moz-#{$pro}: $value;
     -o-#{$pro}: $value;
     -ms-#{$pro}: $value;
@@ -35,7 +35,33 @@ $skin-border: #e0e0e0;
 @mixin transitionpro($pro) {
     -moz-transition:$pro 100ms linear;
     -webkit-transition:$pro 100ms linear;
+    -ms-transition:$pro 100ms linear;
+    -o-transition:$pro 100ms linear;
     transition:$pro 100ms linear;
+}
+
+@mixin transproptime($pro, $value) {
+    -moz-transition:$pro $value linear;
+    -webkit-transition:$pro $value linear;
+    -ms-transition:$pro $value linear;
+    -o-transition:$pro $value linear;
+    transition:$pro $value linear;
+}
+
+@mixin transitionpropmix($pro...) {
+    -moz-transition:$pro;
+    -webkit-transition:$pro;
+    -ms-transition:$pro;
+    -o-transition:$pro;
+    transition:$pro;
+}
+
+@mixin transformpropmix($pro...) {
+     -moz-transform:$pro;
+     -webkit-transform:$pro;
+     -ms-transform:$pro;
+     -o-transform:$pro;
+     transform:$pro;
 }
 
 //animate
