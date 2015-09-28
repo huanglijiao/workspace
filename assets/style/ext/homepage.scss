@@ -249,17 +249,6 @@
         }
     }
     
-    .btn-more {
-        color: $color-btn;
-        border: 1px solid $skin-btn;
-        @include crossprop(border-radius, 3px);
-        @include crossprop(transition, background 150ms linear);
-        padding: 8px 26px;
-        &:hover {
-            background: $skin-btn;
-            color: $color-light;
-        }
-    }
     
     .showcase {
         ol:first-child {
@@ -317,6 +306,18 @@
 @keyframes eachscale {
     0% { transform: scale3d(1.2, 1.2, 1.2);}
     100% { transform: scale3d(1, 1, 1);}
+}
+@-moz-keyframes eachscale {
+    0% { -moz-transform: scale3d(1.2, 1.2, 1.2);}
+    100% { -moz-transform: scale3d(1, 1, 1);}
+}
+@-o-keyframes eachscale {
+    0% { -o-transform: scale3d(1.2, 1.2, 1.2);}
+    100% { -o-transform: scale3d(1, 1, 1);}
+}
+@-ms-keyframes eachscale {
+    0% { -ms-transform: scale3d(1.2, 1.2, 1.2);}
+    100% { -ms-transform: scale3d(1, 1, 1);}
 }
 @keyframes cloudy {
     

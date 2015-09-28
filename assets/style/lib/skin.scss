@@ -78,3 +78,17 @@ $skin-title-border: #ccc;
     0% {opacity: 0;}
     100% {opacity: 1;}
 }
+
+
+// btn
+.btn-more {
+    color: $color-btn;
+    border: 1px solid $skin-btn;
+    @include crossprop(border-radius, 3px);
+    @include crossprop(transition, background 150ms linear);
+    padding: 8px 26px;
+    &:hover {
+        background: $skin-btn;
+        color: $color-light;
+    }
+}
