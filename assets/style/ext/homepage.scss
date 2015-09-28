@@ -193,12 +193,41 @@
  
     .col-l {
         float: left;
-        width: 50%;
+        width: 470px;
+        position: relative;
+        z-index: 1;
+        margin-bottom: 50px;
+        img:nth-child(2) {
+            position: absolute;
+            left: -23px;
+            top: 25px;
+            z-index: 2;
+        }
+        img:nth-child(3) {
+            position: absolute;
+            z-index: 3;
+            left: -40px;
+            top: 70px;
+            @include crossprop(transform, scale3d(0.7, 0.7, 0.7));
+        }
+        img:nth-child(4) {
+            position: absolute;
+            bottom: 50px;
+            left: 70px;
+            z-index: 1;
+        }
+        img:nth-child(5) {
+            position: absolute;
+            z-index: -1;
+            left: 200px;
+            top: 30px;
+            @include crossprop(transform, scale3d(0.5, 0.5, 0.5));
+        }
     }
     
     .col-r {
         float: right;
-        width: 50%;
+        width: 530px;
     }
 
     h3 {
